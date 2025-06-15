@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Modül Seçimi | e-Devlet</title>
+    <title>Dashboard | e-Devlet</title>
 </head>
 <body>
-<h2>Hoş geldiniz, <span th:text="${tcKimlikNo}"></span></h2>
-<p>Modül seçin:</p>
-<ul>
-    <li><a th:href="@{/query/sgk}">SGK Sorgulama</a></li>
-    <li><a th:href="@{/query/vergi}">Vergi Sorgulama</a></li>
-    <li><a th:href="@{/query/nvi}">NVI Sorgulama</a></li>
-</ul>
-<a th:href="@{/logout}">Çıkış Yap</a>
+<h3>Hoş geldiniz, <span th:text="${user.tcKimlikNo}"></span></h3>
+<p>Şu an sisteme giriş yaptınız!</p>
+<a href="/profile">Profilinizi Görüntüleyin</a> |
+<a href="/logout">Çıkış Yap</a>
 </body>
 </html>

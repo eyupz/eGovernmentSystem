@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      th:replace="common/header :: *"
-      th:with="title='Modül Seçimi | e-Devlet'">
-      <meta charset="UTF-8">
-<div>
-    <h2>Hoş geldiniz, <span th:text="${tcKimlikNo}"></span></h2>
-    <ul>
-        <li><a th:href="@{/query/sgk}">SGK Sorgulama</a></li>
-        <li><a th:href="@{/query/vergi}">Vergi Sorgulama</a></li>
-        <li><a th:href="@{/query/nvi}">NVI Sorgulama</a></li>
-    </ul>
-</div>
-<div th:replace="common/footer :: *"></div>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login | e-Devlet</title>
+</head>
+<body>
+<h2>e-Devlet Giriş</h2>
+<form th:action="@{/login}" method="post" th:object="${loginRequest}">
+    <label>TC Kimlik No:</label>
+    <input type="text" th:field="*{tcKimlikNo}" maxlength="11" required />
+
+    <label>Kod:</label>
+    <input type="text" th:field="*{credential}" required />
+
+    <button type="submit">Giriş Yap</button>
+
+    <p th:if="${error}" th:text="${error}" style="color:red;"></p>
+</form>
+</body>
 </html>

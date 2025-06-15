@@ -1,19 +1,22 @@
 package com.eyup.government_system.model;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user_account")
 public class UserAccount {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "tc_kimlik_no", length = 11, unique = true, nullable = false)
     private String tcKimlikNo;
 
     @Column(name = "code", length = 7)
-    private String code; // İlk giriş için 7 haneli kod
+    private String code;  // İlk giriş için kod
 
     @Column(name = "password")
     private String password;

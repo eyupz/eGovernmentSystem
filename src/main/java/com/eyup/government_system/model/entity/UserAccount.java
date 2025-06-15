@@ -17,12 +17,10 @@ public class UserAccount
     @Column(name = "code", nullable = false)
     private String code; // Kullanıcının giriş yaparken kullandığı PTT kodu.
 
-    public UserAccount() {} // Boş constructor.
+    @Column(name = "password")
+    private String password;
 
-    public UserAccount(String tcKimlikNo, String code) {
-        this.tcKimlikNo = tcKimlikNo;
-        this.code = code;
-    }
+    public UserAccount() {}
 
     public Long getId() {
         return id;
@@ -46,5 +44,13 @@ public class UserAccount
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

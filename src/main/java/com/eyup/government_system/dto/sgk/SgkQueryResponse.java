@@ -5,4 +5,4 @@ import java.util.List;
 public class SgkQueryResponse {
     private List<HizmetKaydiDto> hizmetler;
     private List<PrimBorcDto> borclar;
-    private VatandasDurumDto durum;
+    private VatandasDurumDto durum;}

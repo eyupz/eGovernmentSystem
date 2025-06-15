@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class AuthService
-{
+public class AuthService {
 
     private final UserAccountRepository repo;
     private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -24,12 +23,18 @@ public class AuthService
 
     // Sonraki giriş: şifreyi kontrol et
     public Optional<UserAccount> authenticateWithPassword(String tc, String rawPassword) {
-        Optional<UserAccount> user = repo.findByTcKimlikNoAndPassword(tc, encoder.encode(rawPassword));
-        return user;
+        Optional<UserAccount> user = repo.findByTcKimlikNo(tc);
+        if (user.isPresent() && encoder.matches(rawPassword, user.get().getPassword())) {
+            return user;  // Şifre doğruysa kullanıcıyı döndürüyoruz
+        }
+        return Optional.empty();  // Şifre uymazsa boş döndürüyoruz
     }
 
     // Şifre belirleme: kodu null, şifreyi hash’le
     public void setPassword(UserAccount user, String rawPassword) {
+        if (user == null) {
+            throw new IllegalArgumentException("Kullanıcı bulunamadı");
+        }
         String hashed = encoder.encode(rawPassword);
         user.setPassword(hashed);
         user.setCode(null);
