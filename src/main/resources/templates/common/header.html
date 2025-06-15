@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <title th:replace="${title}">e-Devlet</title>
+</head>
+<body>
+<header>
+    <nav>
+        <a th:href="@{/dashboard}">Anasayfa</a> |
+        <a th:href="@{/logout}">Çıkış</a>
+    </nav>
+</header>
+<main>

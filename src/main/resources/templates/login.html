@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="common/header :: *"
+      th:with="title='Modül Seçimi | e-Devlet'">
+      <meta charset="UTF-8">
+<div>
+    <h2>Hoş geldiniz, <span th:text="${tcKimlikNo}"></span></h2>
+    <ul>
+        <li><a th:href="@{/query/sgk}">SGK Sorgulama</a></li>
+        <li><a th:href="@{/query/vergi}">Vergi Sorgulama</a></li>
+        <li><a th:href="@{/query/nvi}">NVI Sorgulama</a></li>
+    </ul>
+</div>
+<div th:replace="common/footer :: *"></div>
 </html>

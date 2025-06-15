@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="common/header :: *"
+      th:with="title='Vergi Sorgulama | e-Devlet'">
+<meta charset="UTF-8">
+<div>
+    <h3>Vergi Sorgulama Formu</h3>
+    <form th:action="@{/query/vergi}" method="post" th:object="${vergiQueryRequest}">
+        <label>TC Kimlik No:</label>
+        <input type="text" th:field="*{tcKimlikNo}" maxlength="11" />
+        <p th:if="${#fields.hasErrors('tcKimlikNo')}"
+           th:errors="*{tcKimlikNo}" style="color:red"></p>
+        <button type="submit">Sorgula</button>
+    </form>
+    <a th:href="@{/dashboard}">← Geri Dön</a>
+</div>
+<div th:replace="common/footer :: *"></div>
 </html>

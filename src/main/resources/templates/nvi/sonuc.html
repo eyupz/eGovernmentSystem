@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="common/header :: *"
+      th:with="title='NVI Sonuç | e-Devlet'">
+<meta charset="UTF-8">
+<div>
+    <h3>NVI Sonuçları</h3>
+    <div th:if="${response.vatandas != null}">
+        <p>Ad Soyad: <span th:text="${response.vatandas.ad} + ' ' + ${response.vatandas.soyad}"></span></p>
+        <p>Doğum Tarihi: <span th:text="${response.vatandas.dogumTarihi}"></span></p>
+        <p>Adres: <span th:text="${response.vatandas.adres}"></span></p>
+    </div>
+    <p th:if="${response.vatandas == null}" style="color:red">
+        Kayıt bulunamadı.
+    </p>
+    <a th:href="@{/dashboard}">← Modül Seçime Dön</a>
+</div>
+<div th:replace="common/footer :: *"></div>
 </html>

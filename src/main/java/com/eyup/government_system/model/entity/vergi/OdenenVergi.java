@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "vergi_borc")
-public class VergiBorc {
+@Table(name = "odenen_vergi")
+public class OdenenVergi {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class VergiBorc {
     @Column(name = "tutar", nullable = false)
     private double tutar;
 
-    public VergiBorc() {}
+    public OdenenVergi() {}
 
     public Long getId() {
         return id;

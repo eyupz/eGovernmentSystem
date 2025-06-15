@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="common/header :: *"
+      th:with="title='Profilim | e-Devlet'">
+<meta charset="UTF-8">
+<div>
+    <h3>Vatandaş Bilgileriniz</h3>
+    <p>Ad: <span th:text="${vatandas.ad}"></span></p>
+    <p>Soyad: <span th:text="${vatandas.soyad}"></span></p>
+    <p>Doğum: <span th:text="${vatandas.dogumTarihi}"></span></p>
+    <p>Adres: <span th:text="${vatandas.adres}"></span></p>
+
+    <h4>Şifre Değiştir</h4>
+    <form th:action="@{/profile/change-password}" method="post" th:object="${setPwdReq}">
+        <label>Yeni Şifre:</label>
+        <input type="password" th:field="*{newPassword}" />
+        <p th:if="${#fields.hasErrors('newPassword')}"
+           th:errors="*{newPassword}" style="color:red"></p>
+        <label>Onay:</label>
+        <input type="password" th:field="*{confirmPassword}" />
+        <p th:if="${#fields.hasErrors('confirmPassword')}"
+           th:errors="*{confirmPassword}" style="color:red"></p>
+        <p th:if="${error}" th:text="${error}" style="color:red"></p>
+        <p th:if="${message}" th:text="${message}" style="color:green"></p>
+        <button type="submit">Güncelle</button>
+    </form>
+</div>
+<div th:replace="common/footer :: *"></div>
+</html>
