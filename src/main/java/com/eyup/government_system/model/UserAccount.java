@@ -1,6 +1,5 @@
 package com.eyup.government_system.model;
 
-import lombok.Getter;
 
 import javax.persistence.*;
 
@@ -19,18 +18,11 @@ public class UserAccount {
     private String code;  // İlk giriş için kod
 
     @Column(name = "password")
-    private String password;
+    private String password;  // Şifre (hash'lenmiş)
 
     public UserAccount() {}
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    // Getter ve Setter'lar
     public String getTcKimlikNo() {
         return tcKimlikNo;
     }

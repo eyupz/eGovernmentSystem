@@ -1,6 +1,8 @@
 package com.eyup.government_system.controller;
 
 import javax.servlet.http.HttpSession;
+
+import com.eyup.government_system.model.UserAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +21,7 @@ public class DashboardController extends BaseController {
             return redirect;
         }
         // Oturum açan kullanıcının TC’sini Thymeleaf’te gösterebiliriz:
-        model.addAttribute("tcKimlikNo", ((com.eyup.government_system.model.UserAccount) session.getAttribute("user")).getTcKimlikNo());
+        model.addAttribute("tcKimlikNo", ((UserAccount) session.getAttribute("user")).getTcKimlikNo());
         return "dashboard";
     }
 }

@@ -1,6 +1,6 @@
 package com.eyup.government_system.model.repository;
 
-import com.eyup.government_system.model.entity.UserAccount;
+import com.eyup.government_system.model.UserAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

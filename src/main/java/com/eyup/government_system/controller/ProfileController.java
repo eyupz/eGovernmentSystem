@@ -1,7 +1,7 @@
 package com.eyup.government_system.controller;
 
 import com.eyup.government_system.dto.SetPasswordRequest;
-import com.eyup.government_system.model.entity.UserAccount;
+import com.eyup.government_system.model.UserAccount;
 import com.eyup.government_system.model.entity.nvi.Vatandas;
 import com.eyup.government_system.model.service.AuthService;
 import com.eyup.government_system.model.service.nvi.NviService;

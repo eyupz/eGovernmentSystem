@@ -2,7 +2,7 @@ package com.eyup.government_system.controller;
 
 import com.eyup.government_system.dto.LoginRequest;
 import com.eyup.government_system.dto.SetPasswordRequest;
-import com.eyup.government_system.model.entity.UserAccount;
+import com.eyup.government_system.model.UserAccount;
 import com.eyup.government_system.model.service.AuthService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,9 +39,10 @@ public class AuthController {
 
         // Eğer validasyon hatası varsa, login sayfasına geri dön
         if (br.hasErrors()) {
-            return "login";
+            return "login";  // Eğer hata varsa login sayfasına geri dönüyoruz
         }
 
+        // Kod ile doğrulama işlemi
         String tc = req.getTcKimlikNo();
         String cred = req.getCredential();  // Kod veya Şifre
 
@@ -62,7 +63,6 @@ public class AuthController {
             return "redirect:/dashboard";  // Dashboard'a yönlendir
         }
 
-        // Eğer giriş başarısızsa, hata mesajı göster
         model.addAttribute("error", "Geçersiz TC Kimlik No veya Kod/Şifre.");
         return "login";  // Geri login sayfasına dön
     }
@@ -75,7 +75,6 @@ public class AuthController {
             return "redirect:/login";
         }
 
-        // Şifre belirleme formu için SetPasswordRequest nesnesi ekleyelim
         model.addAttribute("setPwdReq", new SetPasswordRequest());
         return "set-password"; // set-password.html
     }
@@ -110,6 +109,7 @@ public class AuthController {
 
         return "redirect:/dashboard"; // Şifre belirlendikten sonra dashboard'a yönlendir
     }
+
 
     // Çıkış işlemi: /logout
     @GetMapping("/logout")

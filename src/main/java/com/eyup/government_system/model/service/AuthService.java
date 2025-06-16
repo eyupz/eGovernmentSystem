@@ -1,6 +1,6 @@
 package com.eyup.government_system.model.service;
 
-import com.eyup.government_system.model.entity.UserAccount;
+import com.eyup.government_system.model.UserAccount;
 import com.eyup.government_system.model.repository.UserAccountRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
